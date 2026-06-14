@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jon Burks Band — Linneman's 09.12.26</title>
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0f0f0f;
+      --surface:   #1a1a1a;
+      --border:    #2e2e2e;
+      --accent:    #c9a84c;
+      --text:      #e8e8e8;
+      --muted:     #777;
+      --radius:    6px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Georgia', serif;
+      line-height: 1.6;
+      padding: 0 1rem 4rem;
+    }
+
+    a { color: var(--accent); }
+    a:hover { opacity: .8; }
+
+    /* ── Header ── */
+    header {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 3rem 0 2rem;
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      letter-spacing: .04em;
+      color: var(--accent);
+      margin-bottom: .4rem;
+    }
+
+    header .subtitle {
+      font-size: .95rem;
+      color: var(--muted);
+      font-style: italic;
+      letter-spacing: .06em;
+    }
+
+    .show-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: .5rem 2rem;
+      margin-top: 1.4rem;
+      font-size: .9rem;
+      color: var(--muted);
+    }
+
+    .show-meta span {
+      display: flex;
+      align-items: center;
+      gap: .35rem;
+    }
+
+    .show-meta .icon {
+      font-size: 1rem;
+    }
+
+    /* ── Main ── */
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    /* ── Section labels ── */
+    .section-label {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: .7rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 2.5rem 0 1rem;
+    }
+
+    /* ── Song cards ── */
+    .song-list {
+      display: flex;
+      flex-direction: column;
+      gap: .75rem;
+    }
+
+    .song-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .song-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: .85rem 1rem;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .song-header:hover { background: #222; }
+
+    .song-num {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: .75rem;
+      color: var(--accent);
+      opacity: .7;
+      min-width: 1.4rem;
+      text-align: right;
+    }
+
+    .song-title {
+      flex: 1;
+      font-size: 1.05rem;
+    }
+
+    .song-toggle {
+      font-size: .75rem;
+      color: var(--muted);
+      transition: transform .2s;
+    }
+
+    .song-toggle.open { transform: rotate(180deg); }
+
+    /* ── Expandable body ── */
+    .song-body {
+      display: none;
+      padding: 0 1rem 1rem 1rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .song-body.open { display: block; }
+
+    /* Audio player */
+    .audio-wrap {
+      margin: .85rem 0 .5rem;
+    }
+
+    .audio-wrap audio {
+      width: 100%;
+      height: 36px;
+      accent-color: var(--accent);
+    }
+
+    .no-audio {
+      font-size: .82rem;
+      color: var(--muted);
+      font-style: italic;
+      margin: .85rem 0 .5rem;
+    }
+
+    /* Notes */
+    .notes-label {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: .68rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: .9rem;
+      margin-bottom: .35rem;
+    }
+
+    .notes-text {
+      font-size: .9rem;
+      color: #aaa;
+      white-space: pre-wrap;
+    }
+
+    .no-notes {
+      font-size: .82rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    /* ── Footer ── */
+    footer {
+      max-width: 720px;
+      margin: 3rem auto 0;
+      text-align: center;
+      font-size: .75rem;
+      color: #444;
+      font-family: 'Helvetica Neue', sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Jon Burks Band</h1>
+  <p class="subtitle">Mostly</p>
+  <div class="show-meta">
+    <span><span class="icon">📍</span> Linneman's Riverwest Inn</span>
+    <span><span class="icon">📅</span> Saturday, September 12, 2026</span>
+    <span><span class="icon">🕗</span> 8pm</span>
+    <span><span class="icon">💵</span> $10</span>
+  </div>
+</header>
+
+<main>
+  <p class="section-label">Setlist</p>
+
+  <div class="song-list">
+
+    <!-- ── SONG 1 ── -->
+    <div class="song-card">
+      <div class="song-header" onclick="toggleSong(this)">
+        <span class="song-num">1</span>
+        <span class="song-title">Can't Quit Now</span>
+        <span class="song-toggle">▼</span>
+      </div>
+      <div class="song-body">
+        <p class="no-audio">No audio yet — paste a link here to add a player.</p>
+        <!-- <div class="audio-wrap"><audio controls src="PASTE_LINK_HERE"></audio></div> -->
+
+        <p class="notes-label">Notes</p>
+        <p class="no-notes">No notes yet.</p>
+      </div>
+    </div>
+
+    <!-- ── SONG 2 ── -->
+    <div class="song-card">
+      <div class="song-header" onclick="toggleSong(this)">
+        <span class="song-num">2</span>
+        <span class="song-title">Get Up and Go</span>
+        <span class="song-toggle">▼</span>
+      </div>
+      <div class="song-body">
+        <!-- To add audio: replace the src with a direct Dropbox link (change ?dl=0 → ?raw=1)
+             or a Google Drive direct-download link -->
+        <p class="no-audio">No audio yet — paste a link here to add a player.</p>
+        <!-- <div class="audio-wrap"><audio controls src="PASTE_LINK_HERE"></audio></div> -->
+
+        <p class="notes-label">Notes</p>
+        <p class="no-notes">No notes yet.</p>
+        <!-- Replace the line above with: <p class="notes-text">Your notes here...</p> -->
+      </div>
+    </div>
+
+    <!-- ── SONG 3 ── -->
+    <div class="song-card">
+      <div class="song-header" onclick="toggleSong(this)">
+        <span class="song-num">3</span>
+        <span class="song-title">Scrimshaw</span>
+        <span class="song-toggle">▼</span>
+      </div>
+      <div class="song-body">
+        <p class="no-audio">No audio yet — paste a link here to add a player.</p>
+        <!-- <div class="audio-wrap"><audio controls src="PASTE_LINK_HERE"></audio></div> -->
+
+        <p class="notes-label">Notes</p>
+        <p class="no-notes">No notes yet.</p>
+      </div>
+    </div>
+
+    <!-- ── SONG 4 ── -->
+    <div class="song-card">
+      <div class="song-header" onclick="toggleSong(this)">
+        <span class="song-num">4</span>
+        <span class="song-title">Nothing's Forbidden</span>
+        <span class="song-toggle">▼</span>
+      </div>
+      <div class="song-body">
+        <p class="no-audio">No audio yet — paste a link here to add a player.</p>
+        <!-- <div class="audio-wrap"><audio controls src="PASTE_LINK_HERE"></audio></div> -->
+
+        <p class="notes-label">Notes</p>
+        <p class="no-notes">No notes yet.</p>
+      </div>
+    </div>
+
+    <!-- ── SONG 5 ── -->
+    <div class="song-card">
+      <div class="song-header" onclick="toggleSong(this)">
+        <span class="song-num">5</span>
+        <span class="song-title">For the Show</span>
+        <span class="song-toggle">▼</span>
+      </div>
+      <div class="song-body">
+        <p class="no-audio">No audio yet — paste a link here to add a player.</p>
+        <!-- <div class="audio-wrap"><audio controls src="PASTE_LINK_HERE"></audio></div> -->
+
+        <p class="notes-label">Notes</p>
+        <p class="no-notes">No notes yet.</p>
+      </div>
+    </div>
+
+    <!-- ── SONG 6 ── -->
+    <div class="song-card">
+      <div class="song-header" onclick="toggleSong(this)">
+        <span class="song-num">6</span>
+        <span class="song-title">It's Like That</span>
+        <span class="song-toggle">▼</span>
+      </div>
+      <div class="song-body">
+        <p class="no-audio">No audio yet — paste a link here to add a player.</p>
+        <!-- <div class="audio-wrap"><audio controls src="PASTE_LINK_HERE"></audio></div> -->
+
+        <p class="notes-label">Notes</p>
+        <p class="no-notes">No notes yet.</p>
+      </div>
+    </div>
+
+    <!-- ── SONG 7 ── -->
+    <div class="song-card">
+      <div class="song-header" onclick="toggleSong(this)">
+        <span class="song-num">7</span>
+        <span class="song-title">I Want to Die</span>
+        <span class="song-toggle">▼</span>
+      </div>
+      <div class="song-body">
+        <p class="no-audio">No audio yet — paste a link here to add a player.</p>
+        <!-- <div class="audio-wrap"><audio controls src="PASTE_LINK_HERE"></audio></div> -->
+
+        <p class="notes-label">Notes</p>
+        <p class="no-notes">No notes yet.</p>
+      </div>
+    </div>
+
+    <!-- ── SONG 8 ── -->
+    <div class="song-card">
+      <div class="song-header" onclick="toggleSong(this)">
+        <span class="song-num">8</span>
+        <span class="song-title">IRL</span>
+        <span class="song-toggle">▼</span>
+      </div>
+      <div class="song-body">
+        <p class="no-audio">No audio yet — paste a link here to add a player.</p>
+        <!-- <div class="audio-wrap"><audio controls src="PASTE_LINK_HERE"></audio></div> -->
+
+        <p class="notes-label">Notes</p>
+        <p class="no-notes">No notes yet.</p>
+      </div>
+    </div>
+
+    <!-- ── SONG 9 ── -->
+    <div class="song-card">
+      <div class="song-header" onclick="toggleSong(this)">
+        <span class="song-num">9</span>
+        <span class="song-title">The People We</span>
+        <span class="song-toggle">▼</span>
+      </div>
+      <div class="song-body">
+        <p class="no-audio">No audio yet — paste a link here to add a player.</p>
+        <!-- <div class="audio-wrap"><audio controls src="PASTE_LINK_HERE"></audio></div> -->
+
+        <p class="notes-label">Notes</p>
+        <p class="no-notes">No notes yet.</p>
+      </div>
+    </div>
+
+    <!-- ── SONG 10 ── -->
+    <div class="song-card">
+      <div class="song-header" onclick="toggleSong(this)">
+        <span class="song-num">10</span>
+        <span class="song-title">Muddle Through</span>
+        <span class="song-toggle">▼</span>
+      </div>
+      <div class="song-body">
+        <p class="no-audio">No audio yet — paste a link here to add a player.</p>
+        <!-- <div class="audio-wrap"><audio controls src="PASTE_LINK_HERE"></audio></div> -->
+
+        <p class="notes-label">Notes</p>
+        <p class="no-notes">No notes yet.</p>
+      </div>
+    </div>
+
+  </div><!-- /song-list -->
+</main>
+
+<footer>
+  <p>Jon Burks Band · Linneman's Riverwest Inn · 09.12.26</p>
+</footer>
+
+<script>
+  function toggleSong(header) {
+    const body = header.nextElementSibling;
+    const arrow = header.querySelector('.song-toggle');
+    const isOpen = body.classList.contains('open');
+    body.classList.toggle('open', !isOpen);
+    arrow.classList.toggle('open', !isOpen);
+  }
+</script>
+
+</body>
+</html>
