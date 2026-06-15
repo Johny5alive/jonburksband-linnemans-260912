@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- saved from url=(0221)file:///Users/jonburks/Library/Application%20Support/Claude/local-agent-mode-sessions/cc89477a-a14a-4115-8958-7e0eb42a7ebe/57739d3d-f1f4-4402-a9a4-993677828e6a/local_e70af8f7-5c9c-4b99-ba8e-8ebd24c17abe/outputs/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jon Burks Band — Linneman's 09.12.26</title>
   <style>
-    /* ── Reset & Base ── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -29,7 +28,6 @@
     a { color: var(--accent); }
     a:hover { opacity: .8; }
 
-    /* ── Header ── */
     header {
       max-width: 720px;
       margin: 0 auto;
@@ -68,17 +66,11 @@
       gap: .35rem;
     }
 
-    .show-meta .icon {
-      font-size: 1rem;
-    }
-
-    /* ── Main ── */
     main {
       max-width: 720px;
       margin: 0 auto;
     }
 
-    /* ── Section labels ── */
     .section-label {
       font-family: 'Helvetica Neue', sans-serif;
       font-size: .7rem;
@@ -88,7 +80,6 @@
       margin: 2.5rem 0 1rem;
     }
 
-    /* ── Song cards ── */
     .song-list {
       display: flex;
       flex-direction: column;
@@ -135,7 +126,6 @@
 
     .song-toggle.open { transform: rotate(180deg); }
 
-    /* ── Expandable body ── */
     .song-body {
       display: none;
       padding: 0 1rem 1rem 1rem;
@@ -144,7 +134,6 @@
 
     .song-body.open { display: block; }
 
-    /* Audio player */
     .audio-wrap {
       margin: .85rem 0 .5rem;
     }
@@ -162,7 +151,6 @@
       margin: .85rem 0 .5rem;
     }
 
-    /* Notes */
     .notes-label {
       font-family: 'Helvetica Neue', sans-serif;
       font-size: .68rem;
@@ -185,7 +173,6 @@
       font-style: italic;
     }
 
-    /* ── Footer ── */
     footer {
       max-width: 720px;
       margin: 3rem auto 0;
@@ -202,10 +189,10 @@
   <h1>Jon Burks Band</h1>
   <p class="subtitle">Mostly</p>
   <div class="show-meta">
-    <span><span class="icon">📍</span> Linneman's Riverwest Inn</span>
-    <span><span class="icon">📅</span> Saturday, September 12, 2026</span>
-    <span><span class="icon">🕗</span> 8pm</span>
-    <span><span class="icon">💵</span> $10</span>
+    <span>📍 Linneman's Riverwest Inn</span>
+    <span>📅 Saturday, September 12, 2026</span>
+    <span>🕐 8pm</span>
+    <span>💵 $10</span>
   </div>
 </header>
 
@@ -214,7 +201,6 @@
 
   <div class="song-list">
 
-    <!-- ── SONG 1 ── -->
     <div class="song-card">
       <div class="song-header" onclick="toggleSong(this)">
         <span class="song-num">1</span>
@@ -222,15 +208,12 @@
         <span class="song-toggle">▼</span>
       </div>
       <div class="song-body">
-        <p class="no-audio">No audio yet — paste a link here to add a player.</p>
-        <!-- <div class="audio-wrap"><audio controls src="PASTE_LINK_HERE"></audio></div> -->
-
+        <div class="audio-wrap"><audio controls="" src="audio/1_CantQuitNow.m4a"></audio></div>
         <p class="notes-label">Notes</p>
         <p class="no-notes">No notes yet.</p>
       </div>
     </div>
 
-    <!-- ── SONG 2 ── -->
     <div class="song-card">
       <div class="song-header" onclick="toggleSong(this)">
         <span class="song-num">2</span>
@@ -238,18 +221,12 @@
         <span class="song-toggle">▼</span>
       </div>
       <div class="song-body">
-        <!-- To add audio: replace the src with a direct Dropbox link (change ?dl=0 → ?raw=1)
-             or a Google Drive direct-download link -->
-        <p class="no-audio">No audio yet — paste a link here to add a player.</p>
-        <!-- <div class="audio-wrap"><audio controls src="PASTE_LINK_HERE"></audio></div> -->
-
+        <div class="audio-wrap"><audio controls="" src="audio/2_GetUpAndGo.m4a"></audio></div>
         <p class="notes-label">Notes</p>
         <p class="no-notes">No notes yet.</p>
-        <!-- Replace the line above with: <p class="notes-text">Your notes here...</p> -->
       </div>
     </div>
 
-    <!-- ── SONG 3 ── -->
     <div class="song-card">
       <div class="song-header" onclick="toggleSong(this)">
         <span class="song-num">3</span>
@@ -257,15 +234,12 @@
         <span class="song-toggle">▼</span>
       </div>
       <div class="song-body">
-        <p class="no-audio">No audio yet — paste a link here to add a player.</p>
-        <!-- <div class="audio-wrap"><audio controls src="PASTE_LINK_HERE"></audio></div> -->
-
+        <div class="audio-wrap"><audio controls="" src="audio/3_Scrimshaw.m4a"></audio></div>
         <p class="notes-label">Notes</p>
         <p class="no-notes">No notes yet.</p>
       </div>
     </div>
 
-    <!-- ── SONG 4 ── -->
     <div class="song-card">
       <div class="song-header" onclick="toggleSong(this)">
         <span class="song-num">4</span>
@@ -273,15 +247,12 @@
         <span class="song-toggle">▼</span>
       </div>
       <div class="song-body">
-        <p class="no-audio">No audio yet — paste a link here to add a player.</p>
-        <!-- <div class="audio-wrap"><audio controls src="PASTE_LINK_HERE"></audio></div> -->
-
+        <div class="audio-wrap"><audio controls="" src="audio/4_NothingsForbidden.m4a"></audio></div>
         <p class="notes-label">Notes</p>
         <p class="no-notes">No notes yet.</p>
       </div>
     </div>
 
-    <!-- ── SONG 5 ── -->
     <div class="song-card">
       <div class="song-header" onclick="toggleSong(this)">
         <span class="song-num">5</span>
@@ -289,15 +260,12 @@
         <span class="song-toggle">▼</span>
       </div>
       <div class="song-body">
-        <p class="no-audio">No audio yet — paste a link here to add a player.</p>
-        <!-- <div class="audio-wrap"><audio controls src="PASTE_LINK_HERE"></audio></div> -->
-
+        <div class="audio-wrap"><audio controls="" src="audio/5_OnceMoreFortheShow.m4a"></audio></div>
         <p class="notes-label">Notes</p>
         <p class="no-notes">No notes yet.</p>
       </div>
     </div>
 
-    <!-- ── SONG 6 ── -->
     <div class="song-card">
       <div class="song-header" onclick="toggleSong(this)">
         <span class="song-num">6</span>
@@ -305,15 +273,12 @@
         <span class="song-toggle">▼</span>
       </div>
       <div class="song-body">
-        <p class="no-audio">No audio yet — paste a link here to add a player.</p>
-        <!-- <div class="audio-wrap"><audio controls src="PASTE_LINK_HERE"></audio></div> -->
-
+        <div class="audio-wrap"><audio controls="" src="audio/6_ItsLikeThat.m4a"></audio></div>
         <p class="notes-label">Notes</p>
         <p class="no-notes">No notes yet.</p>
       </div>
     </div>
 
-    <!-- ── SONG 7 ── -->
     <div class="song-card">
       <div class="song-header" onclick="toggleSong(this)">
         <span class="song-num">7</span>
@@ -321,15 +286,12 @@
         <span class="song-toggle">▼</span>
       </div>
       <div class="song-body">
-        <p class="no-audio">No audio yet — paste a link here to add a player.</p>
-        <!-- <div class="audio-wrap"><audio controls src="PASTE_LINK_HERE"></audio></div> -->
-
+        <div class="audio-wrap"><audio controls="" src="audio/7_IWantToDIE.m4a"></audio></div>
         <p class="notes-label">Notes</p>
         <p class="no-notes">No notes yet.</p>
       </div>
     </div>
 
-    <!-- ── SONG 8 ── -->
     <div class="song-card">
       <div class="song-header" onclick="toggleSong(this)">
         <span class="song-num">8</span>
@@ -337,15 +299,12 @@
         <span class="song-toggle">▼</span>
       </div>
       <div class="song-body">
-        <p class="no-audio">No audio yet — paste a link here to add a player.</p>
-        <!-- <div class="audio-wrap"><audio controls src="PASTE_LINK_HERE"></audio></div> -->
-
+        <p class="no-audio">No audio yet.</p>
         <p class="notes-label">Notes</p>
         <p class="no-notes">No notes yet.</p>
       </div>
     </div>
 
-    <!-- ── SONG 9 ── -->
     <div class="song-card">
       <div class="song-header" onclick="toggleSong(this)">
         <span class="song-num">9</span>
@@ -353,15 +312,12 @@
         <span class="song-toggle">▼</span>
       </div>
       <div class="song-body">
-        <p class="no-audio">No audio yet — paste a link here to add a player.</p>
-        <!-- <div class="audio-wrap"><audio controls src="PASTE_LINK_HERE"></audio></div> -->
-
+        <p class="no-audio">No audio yet.</p>
         <p class="notes-label">Notes</p>
         <p class="no-notes">No notes yet.</p>
       </div>
     </div>
 
-    <!-- ── SONG 10 ── -->
     <div class="song-card">
       <div class="song-header" onclick="toggleSong(this)">
         <span class="song-num">10</span>
@@ -369,15 +325,13 @@
         <span class="song-toggle">▼</span>
       </div>
       <div class="song-body">
-        <p class="no-audio">No audio yet — paste a link here to add a player.</p>
-        <!-- <div class="audio-wrap"><audio controls src="PASTE_LINK_HERE"></audio></div> -->
-
+        <p class="no-audio">No audio yet.</p>
         <p class="notes-label">Notes</p>
         <p class="no-notes">No notes yet.</p>
       </div>
     </div>
 
-  </div><!-- /song-list -->
+  </div>
 </main>
 
 <footer>
@@ -386,13 +340,14 @@
 
 <script>
   function toggleSong(header) {
-    const body = header.nextElementSibling;
-    const arrow = header.querySelector('.song-toggle');
-    const isOpen = body.classList.contains('open');
+    var body = header.nextElementSibling;
+    var arrow = header.querySelector('.song-toggle');
+    var isOpen = body.classList.contains('open');
     body.classList.toggle('open', !isOpen);
     arrow.classList.toggle('open', !isOpen);
   }
 </script>
 
-</body>
-</html>
+
+
+</body></html>
